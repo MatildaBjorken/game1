@@ -5,35 +5,75 @@
     <title>Document</title>
     <link rel="stylesheet" href="./styles/blackjack.css" />
   </head>
-  <body>
-    <div class="table">
-      <div class="deck">
-        <div>Deck</div>
-        <div class="card">
-          <p id="deckcount">52</p>
-        </div>
+
+  <body onload="newGame()">
+    <div id="loader" class="center"></div>
+    <div>
+    <div class="controllers">
+      <div class="row">
+        <div id="place">Place your bet!!!</div>
       </div>
 
-      <div id="house"></div>
+      <div>
+        <span id="player-bank"></span>
 
-      <div id="players"></div>
+        <span id="bet"></span>
+      </div>
 
-      <div id="status">
-        <div id="status-content">
-          <p id="status-text"></p>
-          <button id="status-btn" onclick="blackjack.init()">New Game</button>
+      <div id="coins">
+        <a  onclick="bet(1)">
+          <img id="coin1" src="./chips/chip1.png" alt="" srcset="">
+        </a>
+        <a onclick="bet(10)">
+          <img id="coin10" src="./chips/chip10.png" alt="" srcset="">
+       </a>
+        <a onclick="bet(100)">
+            <img id="coin100" src="./chips/chip100.png" alt="" srcset="">
+         </a
+        >
+        <a onclick="bet(500)"> <img id="coin500" src="./chips/chip500.png" alt="" srcset=""></a>
+        <a onclick="bet()">
+          <img id="coin1" src="./chips/allin.png" alt="" srcset="">
+        </a>
+      </div>
+      <button class="pushable" id="deal" onclick="deal()">
+        <span class="front"> Deal </span>
+      </button>
+    </div>
+    <div class="board">
+      <div class="container">
+        <div id="winner"></div>
+
+        <div class="players">
+          <div class="player">
+            <div id="player-total"></div>
+            <div id="player-cards"></div>
+          </div>
+          <div class="btn-main">
+            <button class="pushable btn" id="hit" onclick="hit()">
+              <span class="front"> Hit </span>
+            </button>
+            <button class="pushable btn" id="stand" onclick="stand()">
+              <span class="front"> Stand </span>
+            </button>
+          </div>
+          <div class="dealer">
+            <div id="dealer-total"></div>
+            <div id="dealer-cards"></div>
+          </div>
         </div>
       </div>
     </div>
-    
+
     <iframe
       src="https://my.spline.design/gametest-bd13854fd520561dc632b4ef6ac2823b/"
       frameborder="0"
       width="100%"
       height="100%"
+      name="testIframe"
+      id="testiframe"
     ></iframe>
-    <script src="scripts/deck.js"></script>
-    <script src="scripts/players.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
     <script src="scripts/blackjack.js"></script>
   </body>
 </html>

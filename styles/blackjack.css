@@ -1,104 +1,236 @@
-@import 'reset.css';
-@import 'deck.css';
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
 
-html,
-body {
-  font-family: 'Roboto', sans-serif;
-  color: #222;
+* {
+  padding: 0;
+  letter-spacing: 1;
+  margin: 0;
+  font-family: 'Staatliches', cursive;
 }
 
-.table {
+img{
+  width: 3em;
+}
+
+#loader {
+  border: 12px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 12px solid #444444;
+  width: 70px;
+  height: 70px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+.center {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.players {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#dealer-cards,
+#player-cards {
+  display: flex;
+}
+
+#player-total,
+#dealer-total {
+  
+  color: rgb(159, 94, 200);
+  font-size: 1.2em;
+  transform: rotateX(50deg);
+}
+
+.card {
+  text-align: left;
+  transform: rotateX(50deg);
+  margin: 5px;
+  width: 50px;
+  height: 100px;
+  padding-left: 10px;
+  font-size: 20px;
+  -webkit-box-shadow: 4px 4px 7px rgba(191, 114, 219, 0.868);
+  box-shadow: 4px 4px 7px rgba(191, 114, 219, 0.868);
+  background-color: white;
+}
+
+.card-suit{
+  margin-top: 40px;
+  text-align: right;
+}
+
+#coins {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  width: 100%;
+}
+
+.coin {
+  text-align: center;
+  height: 40px;
+  width: 40px;
+  background-color: white;
+  border-radius: 50%;
+  display: inline-block;
+}
+.bet {
+  margin-top: 30px;
+  height: 75px;
+  color: white;
+  display: inline-block;
+  margin-left: 10px;
+  padding: 5px;
+}
+
+#player-cards,
+#dealer-cards {
+  margin: -1em;
+}
+
+.pushable {
+  -webkit-box-shadow: 4px 4px 7px rgba(191, 114, 219, 0.868);
+  box-shadow: 4px 4px 7px rgba(191, 114, 219, 0.868);
+  background-color: rgb(150, 64, 174);
+  border-radius: 12px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+}
+.front {
+  display: block;
+  padding: 12px 42px;
+  border-radius: 12px;
+  font-size: 1.25rem;
+  background-color: rgb(197, 130, 238);
+  color: white;
+  transform: translateY(-6px);
+}
+
+.pushable:active .front {
+  transform: translateY(-2px);
+}
+
+#hit {
+  margin-right: 1em;
+}
+
+.btn-main {
+  margin-left: 1em;
+  position: absolute;
+  margin-top: -3em;
+}
+
+#place {
+  padding-bottom: 1em;
+}
+
+#player-bank {
+  color: rgb(0, 0, 0);
+  text-shadow: 4px 4px 7px rgba(191, 114, 219, 0.868);
+  font-size: 1.5rem;
+}
+
+.hide {
+  background-color: black;
+  color: black;
+}
+
+.controllers {
+  padding: 2em;
+  position: absolute;
+  z-index: 999;
+}
+.board {
+  width: 60%;
+  text-align: center;
+  z-index: 999;
+  width: 60%;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
   perspective: 1000px;
-
   position: absolute;
-  background: #07632400;
-  padding: 20px 0;
-  display: inline-flex;
   top: 80%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-.btn {
-  border: 1px solid black;
-  padding: 5px;
-  background-color: transparent;
+.container {
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
 }
 
-#house,
-#players {
-  display: block;
-  margin: 1em;
+#winner {
+ 
+
+  font-size: 1.3rem;
+  color: rgb(159, 94, 200);
   transform: rotateX(50deg);
-  padding-top: 10px;
-  width: 320px;
-  clear: both;
-}
-.player {
-  color: #fff;
-
-  padding: 10px;
-  display: block;
-}
-.hand {
-  overflow: auto;
-  clear: both;
-}
-.player.active {
-}
-.points {
-  color: yellow;
 }
 
-.deck {
-  transform: rotateX(50deg);
-
-  margin: 0 auto;
+a {
+  cursor: pointer;
 }
-.deck > div:first-of-type,
-.player > div:first-of-type {
-  width: 100%;
-  color: #fff;
-  text-align: center;
-  font-weight: bold;
-  padding-bottom: 10px;
-}
-
-#status {
-  z-index: 10;
+.hide {
   display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
 }
-#status.active {
+.show {
   display: block;
 }
-#status-content {
-  display: block;
-  position: absolute;
-  width: 100%;
-  padding: 20px 0;
-  top: 150px;
 
-  color: yellow;
-  text-align: center;
-  font-size: 21px;
+.btn {
+  cursor: pointer;
+  transform: rotateX(50deg);
 }
-#status-content.red {
-  color: red;
+
+.one {
+  border: 4px dashed red;
 }
-#status-btn {
-  display: block;
-  width: 120px;
-  padding: 5px 0;
-  background: yellow;
-  color: #222;
-  margin: 20px auto 0;
+.ten {
+  border: 4px dashed blue;
+}
+.hundred {
+  border: 4px dashed green;
+}
+.five {
+  border: 4px dashed black;
+}
+.allin {
+  border: 4px dashed gold;
+}
+#flip {
+  background: rgb(137, 150, 237);
+}
+.slide {
+  animation: slide 1s;
+}
+@keyframes slide {
+  0% {
+    opacity: 0;
+    transform: rotateX(50deg);
+
+    transform: translateX(-100px);
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+.text-border {
+  transform: rotateX(50deg);
 }
