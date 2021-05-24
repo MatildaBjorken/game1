@@ -4,67 +4,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./styles/blackjack.css" />
+    <script src="https://unpkg.co/gsap/dist/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+
   </head>
 
   <body onload="newGame()">
-    <div id="loader" class="center"></div>
-    <div>
-    <div class="controllers">
-      <div class="row">
-        <div id="place">Place your bet!!!</div>
+    <div id="loader" class="center load">   <hr/><hr/><hr/><hr/></div>
+    <div class="main">
+      <div class="controllers">
+        <div class="info">
+          <span id="player-bank" class="bet-info"></span>
+          <div id="place" class="bet-info">Place your bet!!!</div>
+          <span id="bet" class="bet-info"></span>
+        </div>
+
+        <div id="coins">
+          <a onclick="bet(1)">
+            <img
+              id="coin1"
+              class="coin"
+              src="./chips/1.png"
+              alt=""
+              srcset=""
+            />
+          </a>
+          <a onclick="bet(10)">
+            <img
+              id="coin10"
+              class="coin"
+              src="./chips/10.png"
+              alt=""
+              srcset=""
+            />
+          </a>
+          <a onclick="bet(100)">
+            <img
+              id="coin100"
+              class="coin"
+              src="./chips/100.png"
+              alt=""
+              srcset=""
+            />
+          </a>
+          <a onclick="bet(500)">
+            <img
+              id="coin500"
+              class="coin"
+              src="./chips/500.png"
+              alt=""
+              srcset=""
+          /></a>
+          <a onclick="bet()">
+            <img
+              id="coin1"
+              class="coin"
+              src="./chips/allin2.png"
+              alt=""
+              srcset=""
+            />
+          </a>
+        </div>
+        <button class="pushable" id="deal" onclick="deal()">
+          Deal
+        </button>
       </div>
+      <div class="board">
+        <div class="container">
+          <div id="winner"></div>
 
-      <div>
-        <span id="player-bank"></span>
-
-        <span id="bet"></span>
-      </div>
-
-      <div id="coins">
-        <a  onclick="bet(1)">
-          <img id="coin1" src="./chips/chip1.png" alt="" srcset="">
-        </a>
-        <a onclick="bet(10)">
-          <img id="coin10" src="./chips/chip10.png" alt="" srcset="">
-       </a>
-        <a onclick="bet(100)">
-            <img id="coin100" src="./chips/chip100.png" alt="" srcset="">
-         </a
-        >
-        <a onclick="bet(500)"> <img id="coin500" src="./chips/chip500.png" alt="" srcset=""></a>
-        <a onclick="bet()">
-          <img id="coin1" src="./chips/allin.png" alt="" srcset="">
-        </a>
-      </div>
-      <button class="pushable" id="deal" onclick="deal()">
-        <span class="front"> Deal </span>
-      </button>
-    </div>
-    <div class="board">
-      <div class="container">
-        <div id="winner"></div>
-
-        <div class="players">
-          <div class="player">
-            <div id="player-total"></div>
-            <div id="player-cards"></div>
-          </div>
-          <div class="btn-main">
-            <button class="pushable btn" id="hit" onclick="hit()">
-              <span class="front"> Hit </span>
-            </button>
-            <button class="pushable btn" id="stand" onclick="stand()">
-              <span class="front"> Stand </span>
-            </button>
-          </div>
-          <div class="dealer">
-            <div id="dealer-total"></div>
-            <div id="dealer-cards"></div>
+          <div class="players">
+            <div class="player">
+              <div id="player-total"></div>
+              <div id="player-cards"></div>
+            </div>
+            <div class="btn-main">
+              <button class="pushable btn" id="hit" onclick="hit()">
+                Hit
+              </button>
+              <button class="pushable btn" id="stand" onclick="stand()">
+               Stand
+              </button>
+            </div>
+            <div class="dealer">
+              <div id="dealer-total"></div>
+              <div id="dealer-cards"></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-
     <iframe
       src="https://my.spline.design/gametest-bd13854fd520561dc632b4ef6ac2823b/"
       frameborder="0"

@@ -7,22 +7,58 @@
   font-family: 'Staatliches', cursive;
 }
 
-img{
+img {
   width: 3em;
 }
 
-#loader {
-  border: 12px solid #f3f3f3;
+.main {
+  display: none;
+}
+
+.load {
+  /*change these sizes to fit into your project*/
+  width: 100px;
+  height: 100px;
+}
+.load hr {
+  border: 0;
+  margin: 0;
+  width: 40%;
+  height: 40%;
+  position: absolute;
   border-radius: 50%;
-  border-top: 12px solid #444444;
-  width: 70px;
-  height: 70px;
-  animation: spin 1s linear infinite;
+  animation: spin 2s ease infinite;
+}
+
+.load :first-child {
+  background: #ffffff;
+  animation-delay: -1.5s;
+}
+.load :nth-child(2) {
+  background: #ffffff;
+  animation-delay: -1s;
+}
+.load :nth-child(3) {
+  background: #ffffff;
+  animation-delay: -0.5s;
+}
+.load :last-child {
+  background: #ffffff;
 }
 
 @keyframes spin {
+  0%,
   100% {
-      transform: rotate(360deg);
+    transform: translate(0);
+  }
+  25% {
+    transform: translate(160%);
+  }
+  50% {
+    transform: translate(160%, 160%);
+  }
+  75% {
+    transform: translate(0, 160%);
   }
 }
 
@@ -48,13 +84,17 @@ img{
 
 #player-total,
 #dealer-total {
-  
-  color: rgb(159, 94, 200);
-  font-size: 1.2em;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(255, 255, 255);
+  font-size: 2rem;
   transform: rotateX(50deg);
 }
 
 .card {
+  -webkit-box-shadow: 4px 4px 7px rgba(191, 114, 219, 0.868);
+  box-shadow: 4px 4px 7px rgba(191, 114, 219, 0.868);
+  border: 2px solid rgb(255, 255, 255);
   text-align: left;
   transform: rotateX(50deg);
   margin: 5px;
@@ -62,12 +102,13 @@ img{
   height: 100px;
   padding-left: 10px;
   font-size: 20px;
-  -webkit-box-shadow: 4px 4px 7px rgba(191, 114, 219, 0.868);
-  box-shadow: 4px 4px 7px rgba(191, 114, 219, 0.868);
-  background-color: white;
+  color: white;
+  background-color: rgba(255, 255, 255, 0);
+  animation: float 6s ease-in-out infinite;
 }
 
-.card-suit{
+.card-suit {
+  color: white;
   margin-top: 40px;
   text-align: right;
 }
@@ -79,12 +120,23 @@ img{
 }
 
 .coin {
-  text-align: center;
-  height: 40px;
-  width: 40px;
-  background-color: white;
+  animation: float 6s ease-in-out infinite;
   border-radius: 50%;
-  display: inline-block;
+}
+
+@keyframes float {
+  0% {
+    box-shadow: 0 5px 15px 0px rgba(131, 48, 156, 0.2);
+    transform: translatey(0px);
+  }
+  50% {
+    box-shadow: 0 25px 15px 0px rgba(131, 48, 156, 0.2);
+    transform: translatey(-10px);
+  }
+  100% {
+    box-shadow: 0 5px 15px 0px rgba(131, 48, 156, 0.2);
+    transform: translatey(0px);
+  }
 }
 .bet {
   margin-top: 30px;
@@ -103,25 +155,14 @@ img{
 .pushable {
   -webkit-box-shadow: 4px 4px 7px rgba(191, 114, 219, 0.868);
   box-shadow: 4px 4px 7px rgba(191, 114, 219, 0.868);
-  background-color: rgb(150, 64, 174);
-  border-radius: 12px;
+  background-color: transparent;
   border: none;
-  padding: 0;
-  cursor: pointer;
-  outline-offset: 4px;
-}
-.front {
-  display: block;
   padding: 12px 42px;
-  border-radius: 12px;
-  font-size: 1.25rem;
-  background-color: rgb(197, 130, 238);
+  cursor: pointer;
+  font-size: 1.2rem;
+  outline-offset: 4px;
+  border: 1.5px solid white;
   color: white;
-  transform: translateY(-6px);
-}
-
-.pushable:active .front {
-  transform: translateY(-2px);
 }
 
 #hit {
@@ -134,14 +175,12 @@ img{
   margin-top: -3em;
 }
 
-#place {
-  padding-bottom: 1em;
-}
-
-#player-bank {
-  color: rgb(0, 0, 0);
-  text-shadow: 4px 4px 7px rgba(191, 114, 219, 0.868);
-  font-size: 1.5rem;
+.bet-info {
+  font-size: 2rem;
+  color: black;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(255, 255, 255);
 }
 
 .hide {
@@ -155,10 +194,10 @@ img{
   z-index: 999;
 }
 .board {
-  width: 60%;
+  min-width: 60%;
   text-align: center;
   z-index: 999;
-  width: 60%;
+
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
@@ -170,16 +209,17 @@ img{
 }
 
 .container {
-  width: 80%;
+  min-width: 80%;
   margin-right: auto;
   margin-left: auto;
 }
 
 #winner {
- 
-
-  font-size: 1.3rem;
-  color: rgb(159, 94, 200);
+  margin-bottom: -1.3em;
+  font-size: 2rem;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(255, 255, 255);
   transform: rotateX(50deg);
 }
 
@@ -217,6 +257,7 @@ a {
   background: rgb(137, 150, 237);
 }
 .slide {
+  animation: float 6s ease-in-out infinite;
   animation: slide 1s;
 }
 @keyframes slide {
@@ -233,4 +274,21 @@ a {
 }
 .text-border {
   transform: rotateX(50deg);
+}
+
+@media only screen and (max-width: 768px) {
+  .card {
+    text-align: left;
+    transform: rotateX(50deg);
+    margin: 5px;
+    width: 50px;
+    height: 100px;
+    padding-left: 10px;
+    font-size: 20px;
+  }
+  .container {
+    min-width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+  }
 }

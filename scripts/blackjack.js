@@ -1,10 +1,21 @@
-document.getElementById("testiframe").addEventListener("load", loaded);
+
+tl = new TimelineMax();
+
+tl.from('.bet-info > .info', 1.6, {
+  opacity: 0,
+  y: 60,
+  ease: Expo.easeInOut,
+  delay: 0.6,
+});
+
+
+document.getElementById('testiframe').addEventListener('load', loaded);
 
 function loaded() {
-    setTimeout(function() {
-        document.getElementById("loader").style.display = "none";
-    }, 1000);
-    
+  setTimeout(function () {
+    document.getElementById('loader').style.display = 'none';
+    document.querySelector('.main').style.display = 'block';
+  }, 1000);
 }
 
 let player = {
@@ -25,7 +36,7 @@ function deal() {
   player.total = 0;
   dealer.total = 0;
   drawnCards = [];
-  document.getElementById('winner').innerHTML = '';
+  document.getElementById('winner').innerHTML = '.';
   let playerCards = document.getElementById('player-cards');
   while (playerCards.firstChild) {
     playerCards.removeChild(playerCards.firstChild);
@@ -257,7 +268,7 @@ function newPot() {
 }
 
 function newGame() {
-  document.getElementById('winner').innerHTML = '';
+  document.getElementById('winner').innerHTML = '.';
   document.getElementById('place').style.visibility = 'visible';
   document.getElementById('player-bank').innerHTML =
     'Your bank: $' + player.bank;
