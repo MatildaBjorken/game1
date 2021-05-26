@@ -1,14 +1,4 @@
 
-tl = new TimelineMax();
-
-tl.from('.bet-info > .info', 1.6, {
-  opacity: 0,
-  y: 60,
-  ease: Expo.easeInOut,
-  delay: 0.6,
-});
-
-
 document.getElementById('testiframe').addEventListener('load', loaded);
 
 function loaded() {
@@ -36,7 +26,7 @@ function deal() {
   player.total = 0;
   dealer.total = 0;
   drawnCards = [];
-  document.getElementById('winner').innerHTML = '.';
+  document.getElementById('winner').innerHTML = 'result..';
   let playerCards = document.getElementById('player-cards');
   while (playerCards.firstChild) {
     playerCards.removeChild(playerCards.firstChild);
@@ -207,7 +197,7 @@ function bet(amount = 'all') {
     player.bank = player.bank - amount;
     document.getElementById('bet').innerHTML = 'Bet: $' + pot;
     document.getElementById('player-bank').innerHTML =
-      'Your Bank: $' + player.bank;
+      'Your have: $' + player.bank;
     newPot();
   }
 }
@@ -217,7 +207,7 @@ function winner(person) {
       pot = 0;
       document.getElementById('bet').innerHTML = 'Bet: $' + pot;
       document.getElementById('player-bank').innerHTML =
-        'Your bank: $' + player.bank;
+        'Your have: $' + player.bank;
       document.getElementById('winner').innerHTML = 'Dealer Wins!!!!';
       document.getElementById('place').style.visibility = 'visible';
       document.getElementById('coins').style.visibility = 'visible';
@@ -229,7 +219,7 @@ function winner(person) {
       pot = 0;
       document.getElementById('bet').innerHTML = 'Bet: $' + pot;
       document.getElementById('player-bank').innerHTML =
-        'Your bank: $' + player.bank;
+        'Your have: $' + player.bank;
       document.getElementById('winner').innerHTML = 'You Win!!!!';
 
       confetti({
@@ -246,7 +236,7 @@ function winner(person) {
     case draw:
       document.getElementById('bet').innerHTML = 'Bet: $' + pot;
       document.getElementById('player-bank').innerHTML =
-        'Your bank: $' + player.bank;
+        'Your have: $' + player.bank;
       document.getElementById('winner').innerHTML = 'Draw!!!!';
       document.getElementById('place').style.visibility = 'visible';
       document.getElementById('hit').style.visibility = 'hidden';
@@ -268,10 +258,10 @@ function newPot() {
 }
 
 function newGame() {
-  document.getElementById('winner').innerHTML = '.';
+  document.getElementById('winner').innerHTML = '';
   document.getElementById('place').style.visibility = 'visible';
   document.getElementById('player-bank').innerHTML =
-    'Your bank: $' + player.bank;
+    'Your have: $' + player.bank;
   document.getElementById('bet').innerHTML = 'Bet: $' + pot;
   newPot();
 }

@@ -6,11 +6,15 @@
     <link rel="stylesheet" href="./styles/blackjack.css" />
     <script src="https://unpkg.co/gsap/dist/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
-
   </head>
 
   <body onload="newGame()">
-    <div id="loader" class="center load">   <hr/><hr/><hr/><hr/></div>
+    <div id="loader" class="center load">
+      <hr />
+      <hr />
+      <hr />
+      <hr />
+    </div>
     <div class="main">
       <div class="controllers">
         <div class="info">
@@ -21,13 +25,7 @@
 
         <div id="coins">
           <a onclick="bet(1)">
-            <img
-              id="coin1"
-              class="coin"
-              src="./chips/1.png"
-              alt=""
-              srcset=""
-            />
+            <img id="coin1" class="coin" src="./chips/1.png" alt="" srcset="" />
           </a>
           <a onclick="bet(10)">
             <img
@@ -65,25 +63,23 @@
             />
           </a>
         </div>
-        <button class="pushable" id="deal" onclick="deal()">
-          Deal
-        </button>
+        <button class="pushable" id="deal" onclick="deal()">Deal</button>
       </div>
       <div class="board">
         <div class="container">
-          <div id="winner"></div>
+        
 
           <div class="players">
+         
             <div class="player">
               <div id="player-total"></div>
               <div id="player-cards"></div>
             </div>
+            <div id="winner"></div>
             <div class="btn-main">
-              <button class="pushable btn" id="hit" onclick="hit()">
-                Hit
-              </button>
+              <button class="pushable btn" id="hit" onclick="hit()">Hit</button>
               <button class="pushable btn" id="stand" onclick="stand()">
-               Stand
+                Stand
               </button>
             </div>
             <div class="dealer">
