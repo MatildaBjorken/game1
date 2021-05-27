@@ -153,6 +153,7 @@ img {
 }
 
 .pushable {
+  z-index: 9999;
   -webkit-box-shadow: 4px 4px 7px rgba(191, 114, 219, 0.868);
   box-shadow: 4px 4px 7px rgba(191, 114, 219, 0.868);
   background-color: transparent;
@@ -161,7 +162,7 @@ img {
   cursor: pointer;
   font-size: 1.2rem;
   outline-offset: 4px;
-  border: 1.5px solid white;
+  border: 2px solid white;
   color: white;
 }
 
@@ -170,6 +171,7 @@ img {
 }
 
 .btn-main {
+  z-index: 999;
   margin-left: 1em;
   position: absolute;
   margin-top: -3em;
@@ -233,6 +235,7 @@ a {
 }
 
 .btn {
+  z-index: 999;
   cursor: pointer;
   transform: rotateX(50deg);
 }
@@ -275,19 +278,57 @@ a {
   transform: rotateX(50deg);
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 992px) {
   .card {
     text-align: left;
     transform: rotateX(50deg);
     margin: 5px;
-    width: 50px;
-    height: 100px;
+    width: 40px;
+    height: 90px;
     padding-left: 10px;
-    font-size: 20px;
+    font-size: 15px;
   }
   .container {
     min-width: 100%;
     margin-right: auto;
     margin-left: auto;
+  }
+  .pushable {
+   
+    padding: 8px 32px;
+    cursor: pointer;
+    font-size: .9rem;
+    outline-offset: 4px;
+    border: 2px solid white;
+    color: white;
+    }
+  .card-suit {
+    margin-top: 45px;
+  }
+
+  .board {
+    min-width: 80%;
+  }
+  #player-total,
+  #dealer-total {
+    font-size: 1.5rem;
+  }
+
+  #winner {
+    font-size: 1.5rem;
+  }
+
+  .bet-info {
+    font-size: 1.5rem;
+  }
+
+  img {
+    width: 2.5em;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .board {
+    min-width: 80%;
   }
 }
