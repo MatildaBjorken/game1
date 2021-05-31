@@ -116,12 +116,7 @@ function hit() {
   draw(player);
   let newCard = document.createElement('div');
   newCard.className = 'card slide';
-  console.log(player.cards);
-
   newCard.innerHTML = player.cards[player.cards.length - 1];
-
-  console.log(newCard.innerHTML);
-
   let value = document.createElement('p');
   value.innerHTML = newCard.innerHTML;
   value.className = 'card-suit';
@@ -257,11 +252,47 @@ function newPot() {
   }
 }
 
+function init() {
+  let storedMode = sessionStorage.getItem('key');
+  console.log(storedMode);
+  if (!storedMode) {
+    storedMode = player.bank;
+    sessionStorage.setItem('key', player.bank);
+  }
+  newGame(storedMode);
+}
+init();
+
 function newGame() {
-  document.getElementById('winner').innerHTML = '';
-  document.getElementById('place').style.visibility = 'visible';
-  document.getElementById('player-bank').innerHTML =
-    'Your have: $' + player.bank;
-  document.getElementById('bet').innerHTML = 'Bet: $' + pot;
-  newPot();
+  let mode = sessionStorage.getItem('key');
+  if (mode) {
+    document.getElementById('winner').innerHTML = '';
+    document.getElementById('place').style.visibility = 'visible';
+    let playerBet = (document.getElementById('player-bank').innerHTML =
+      'Your have: $' + player.bank);
+    document.getElementById('player-bank').innerHTML =
+      'Your have: $' + player.bank;
+    document.getElementById('bet').innerHTML = 'Bet: $' + pot;
+    newPot();
+    sessionStorage.setItem('mode', playerBet);
+  }
+}
+
+function checkList(list, element) {
+  let found = false;
+  for (let i = 0; i < list.length(); i++) {
+    if (list[i] == element) {
+      found = true;
+    }
+  }
+  return found;
+}
+
+function checkList2(list, element) {
+  for (let i = 0; i < list.length(); i++) {
+    if (list[i] == element) {
+      return true;
+    }
+  }
+  return false;
 }

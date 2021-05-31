@@ -15,89 +15,97 @@
       <hr />
       <hr />
     </div>
-    <div class="main">
-      <div class="controllers">
-        <div class="info">
-          <span id="player-bank" class="bet-info"></span>
-          <div id="place" class="bet-info">Place your bet!!!</div>
-          <span id="bet" class="bet-info"></span>
-        </div>
+    <div class="resize-text">Resize to get the experience!</div>
+    <div class="resize">
+      <div class="main">
+        <div class="controllers">
+          <div class="info">
+            <span id="player-bank" class="bet-info"></span>
+            <div id="place" class="bet-info">Place your bet!!!</div>
+            <span id="bet" class="bet-info"></span>
+          </div>
 
-        <div id="coins">
-          <a onclick="bet(1)">
-            <img id="coin1" class="coin" src="./chips/1.png" alt="" srcset="" />
-          </a>
-          <a onclick="bet(10)">
-            <img
-              id="coin10"
-              class="coin"
-              src="./chips/10.png"
-              alt=""
-              srcset=""
-            />
-          </a>
-          <a onclick="bet(100)">
-            <img
-              id="coin100"
-              class="coin"
-              src="./chips/100.png"
-              alt=""
-              srcset=""
-            />
-          </a>
-          <a onclick="bet(500)">
-            <img
-              id="coin500"
-              class="coin"
-              src="./chips/500.png"
-              alt=""
-              srcset=""
-          /></a>
-          <a onclick="bet()">
-            <img
-              id="coin1"
-              class="coin"
-              src="./chips/allin2.png"
-              alt=""
-              srcset=""
-            />
-          </a>
+          <div id="coins">
+            <a onclick="bet(1)">
+              <img
+                id="coin1"
+                class="coin"
+                src="./chips/1.png"
+                alt=""
+                srcset=""
+              />
+            </a>
+            <a onclick="bet(10)">
+              <img
+                id="coin10"
+                class="coin"
+                src="./chips/10.png"
+                alt=""
+                srcset=""
+              />
+            </a>
+            <a onclick="bet(100)">
+              <img
+                id="coin100"
+                class="coin"
+                src="./chips/100.png"
+                alt=""
+                srcset=""
+              />
+            </a>
+            <a onclick="bet(500)">
+              <img
+                id="coin500"
+                class="coin"
+                src="./chips/500.png"
+                alt=""
+                srcset=""
+            /></a>
+            <a onclick="bet()">
+              <img
+                id="coin1"
+                class="coin"
+                src="./chips/allin2.png"
+                alt=""
+                srcset=""
+              />
+            </a>
+          </div>
+          <button class="pushable" id="deal" onclick="deal()">Deal</button>
         </div>
-        <button class="pushable" id="deal" onclick="deal()">Deal</button>
-      </div>
-      <div class="board">
-        <div class="container">
-        
-
-          <div class="players">
-         
-            <div class="player">
-              <div id="player-total"></div>
-              <div id="player-cards"></div>
-            </div>
-            <div id="winner"></div>
-            <div class="btn-main">
-              <button class="pushable btn" id="hit" onclick="hit()">Hit</button>
-              <button class="pushable btn" id="stand" onclick="stand()">
-                Stand
-              </button>
-            </div>
-            <div class="dealer">
-              <div id="dealer-total"></div>
-              <div id="dealer-cards"></div>
+        <div class="board">
+          <div class="container">
+            <div class="players">
+              <div class="player">
+                <div id="player-total"></div>
+                <div id="player-cards"></div>
+              </div>
+              <div id="winner"></div>
+              <div class="btn-main">
+                <button class="pushable btn" id="hit" onclick="hit()">
+                  Hit
+                </button>
+                <button class="pushable btn" id="stand" onclick="stand()">
+                  Stand
+                </button>
+              </div>
+              <div class="dealer">
+                <div id="dealer-total"></div>
+                <div id="dealer-cards"></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+      <iframe
+        src="https://my.spline.design/gametest-bd13854fd520561dc632b4ef6ac2823b/"
+        frameborder="0"
+        width="100%"
+        height="100%"
+        name="testIframe"
+        id="testiframe"
+      ></iframe>
     </div>
-    <iframe
-      src="https://my.spline.design/gametest-bd13854fd520561dc632b4ef6ac2823b/"
-      frameborder="0"
-      width="100%"
-      height="100%"
-      name="testIframe"
-      id="testiframe"
-    ></iframe>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
     <script src="scripts/blackjack.js"></script>
   </body>
