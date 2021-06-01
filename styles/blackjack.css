@@ -326,7 +326,7 @@ a {
   }
 }
 
-.resize-text{
+.resize-text {
   display: none;
 }
 
@@ -334,8 +334,11 @@ a {
   .resize {
     display: none;
   }
+  body {
+    background-color: #8995db;
+  }
 
-  .resize-text{
+  .resize-text {
     display: block;
     position: absolute;
     top: 50%;
@@ -345,6 +348,6 @@ a {
     font-size: 2.5rem;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 1.5px;
-    -webkit-text-stroke-color: rgb(191, 114, 219);
+    -webkit-text-stroke-color: rgb(255, 255, 255);
   }
 }
