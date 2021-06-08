@@ -194,9 +194,9 @@ function bet(amount = 'all') {
     localStorage.setItem('theMONEY', player.bank);
     let highScores = localStorage.getItem('theMONEY');
     console.log(highScores);
-    document.getElementById('bet').innerHTML = 'Bet: $' + pot;
+    document.getElementById('bet').innerHTML = 'Bet: ' + pot + ' kr';
     document.getElementById('player-bank').innerHTML =
-      'Your have: $' + highScores;
+      'You have: ' + highScores + 'kr';
 
     newPot();
   }
@@ -205,12 +205,12 @@ function winner(person) {
   switch (person) {
     case dealer:
       pot = 0;
-      document.getElementById('bet').innerHTML = 'Bet: $' + pot;
+      document.getElementById('bet').innerHTML = 'Bet:' + pot + ' kr';
       localStorage.setItem('theMONEY', player.bank);
       let highScores = localStorage.getItem('theMONEY');
       console.log(highScores);
       document.getElementById('player-bank').innerHTML =
-        'Your have: $' + highScores;
+        'You have: ' + highScores + ' kr';
       document.getElementById('winner').innerHTML = 'Dealer Wins!!!!';
       document.getElementById('place').style.visibility = 'visible';
       document.getElementById('coins').style.visibility = 'visible';
@@ -220,12 +220,12 @@ function winner(person) {
     case player:
       player.bank = player.bank + pot * 2;
       pot = 0;
-      document.getElementById('bet').innerHTML = 'Bet: $' + pot;
+      document.getElementById('bet').innerHTML = 'Bet: ' + pot + ' kr';
       localStorage.setItem('theMONEY', player.bank);
       let highScores2 = localStorage.getItem('theMONEY');
       console.log(highScores2);
       document.getElementById('player-bank').innerHTML =
-        'Your have: $' + highScores2;
+        'You have: ' + highScores2 + ' kr';
       document.getElementById('winner').innerHTML = 'You Win!!!!';
 
       confetti({
@@ -240,12 +240,12 @@ function winner(person) {
       break;
 
     case draw:
-      document.getElementById('bet').innerHTML = 'Bet: $' + pot;
+      document.getElementById('bet').innerHTML = 'Bet: ' + pot + ' kr';
       localStorage.setItem('theMONEY', player.bank);
       let highScores3 = localStorage.getItem('theMONEY');
       console.log(highScores2);
       document.getElementById('player-bank').innerHTML =
-        'Your have: $' + highScores3;
+        'You have: ' + highScores3 + ' kr';
       document.getElementById('winner').innerHTML = 'Draw!!!!';
       document.getElementById('place').style.visibility = 'visible';
       document.getElementById('hit').style.visibility = 'hidden';
@@ -283,34 +283,14 @@ function newGame() {
     document.getElementById('winner').innerHTML = '';
     localStorage.setItem('theMONEY', player.bank);
     let newGameLocalStorage = localStorage.getItem('theMONEY');
-  
+
     document.getElementById('place').style.visibility = 'visible';
     let playerBet = (document.getElementById('player-bank').innerHTML =
-      'Your have: $' + newGameLocalStorage);
+      'You have: ' + newGameLocalStorage + ' kr');
     document.getElementById('player-bank').innerHTML =
-      'Your have: $' + newGameLocalStorage;
-    document.getElementById('bet').innerHTML = 'Bet: $' + pot;
+      'You have: ' + newGameLocalStorage +' kr';
+    document.getElementById('bet').innerHTML = 'Bet: ' + pot + ' kr';
     newPot();
     sessionStorage.setItem('mode', playerBet);
   }
 }
-
-function checkList(list, element) {
-  let found = false;
-  for (let i = 0; i < list.length(); i++) {
-    if (list[i] == element) {
-      found = true;
-    }
-  }
-  return found;
-}
-
-function checkList2(list, element) {
-  for (let i = 0; i < list.length(); i++) {
-    if (list[i] == element) {
-      return true;
-    }
-  }
-  return false;
-}
-
