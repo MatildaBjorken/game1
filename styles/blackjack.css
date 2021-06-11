@@ -210,6 +210,11 @@ img {
   transform: translate(-50%, -50%);
 }
 
+.back{
+  position: absolute;
+  top: 200%;
+}
+
 .container {
   min-width: 80%;
   margin-right: auto;

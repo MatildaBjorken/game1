@@ -242,10 +242,7 @@ function winner(person) {
     case draw:
       document.getElementById('bet').innerHTML = 'Bet: ' + pot + ' kr';
       localStorage.setItem('theMONEY', player.bank);
-      let highScores3 = localStorage.getItem('theMONEY');
-      console.log(highScores2);
-      document.getElementById('player-bank').innerHTML =
-        'You have: ' + highScores3 + ' kr';
+
       document.getElementById('winner').innerHTML = 'Draw!!!!';
       document.getElementById('place').style.visibility = 'visible';
       document.getElementById('hit').style.visibility = 'hidden';
@@ -288,7 +285,7 @@ function newGame() {
     let playerBet = (document.getElementById('player-bank').innerHTML =
       'You have: ' + newGameLocalStorage + ' kr');
     document.getElementById('player-bank').innerHTML =
-      'You have: ' + newGameLocalStorage +' kr';
+      'You have: ' + newGameLocalStorage + ' kr';
     document.getElementById('bet').innerHTML = 'Bet: ' + pot + ' kr';
     newPot();
     sessionStorage.setItem('mode', playerBet);
